@@ -27,10 +27,31 @@ df = pd.read_csv("loan_approval_dataset.csv")
 # converting the string data into numerical data
 df.columns = df.columns.str.strip()  # removing the extra space.
 
-df["education"]=df["education"].replace([" Graduate"," Not Graduate"],[1,0])
-df["self_employed"]=df["self_employed"].replace([" Yes"," No"],[1,0])
-df["loan_status"]=df["loan_status"].replace([" Approved"," Rejected"],[1,0])
+# Remove spaces from values
+df["education"] = df["education"].str.strip()
+df["self_employed"] = df["self_employed"].str.strip()
+df["loan_status"] = df["loan_status"].str.strip()
 
+# Convert to numbers
+df["education"] = df["education"].replace({
+    "Graduate": 1,
+    "Not Graduate": 0
+})
+
+df["self_employed"] = df["self_employed"].replace({
+    "Yes": 1,
+    "No": 0
+})
+
+df["loan_status"] = df["loan_status"].replace({
+    "Approved": 1,
+    "Rejected": 0
+})
+
+# Ensure numeric dtype
+df["education"] = df["education"].astype(int)
+df["self_employed"] = df["self_employed"].astype(int)
+df["loan_status"] = df["loan_status"].astype(int)
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score,confusion_matrix,classification_report,roc_curve
