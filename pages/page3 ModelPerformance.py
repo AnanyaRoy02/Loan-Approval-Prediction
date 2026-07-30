@@ -56,6 +56,12 @@ y_pred = model.predict(x_test_scaled)  # pred the test dataset
 
 st.title("📊 Model Performance")
 
+print("y_test dtype:", y_test.dtype)
+print("y_pred dtype:", y_pred.dtype)
+
+print("Unique y_test:", y_test.unique())
+print("Unique y_pred:", set(y_pred))
+
 # Accuracy scoreee
 st.subheader("1. Model Accuracy")
 accuracy = accuracy_score(y_test,y_pred)
