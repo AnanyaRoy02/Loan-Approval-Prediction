@@ -49,7 +49,7 @@ x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=
 
 # scaling the independent variables
 
-x_train_scaled = scaler.fit_transform(x_train)
+
 x_test_scaled = scaler.transform(x_test)
 
 y_pred = model.predict(x_test_scaled)  # pred the test dataset
