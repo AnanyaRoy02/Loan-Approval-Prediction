@@ -61,12 +61,15 @@ st.title("📊 Model Performance")
 #accuracy = accuracy_score(y_test,y_pred)
 #st.success(f"Accuracy: {accuracy*100:.2f}")
 
-st.write("===== DEBUG =====")
 st.write("y_test dtype:", y_test.dtype)
 st.write("y_test unique:", y_test.unique())
 
+st.write("y_test values and types:")
+for val in y_test.unique():
+    st.write(repr(val), type(val))
+
 st.write("y_pred dtype:", y_pred.dtype)
-st.write("y_pred unique:", y_pred)
+st.write("y_pred unique:", set(y_pred))
 
 st.stop()
 
