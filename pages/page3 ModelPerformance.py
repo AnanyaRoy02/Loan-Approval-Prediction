@@ -78,21 +78,10 @@ y_pred = model.predict(x_test_scaled)  # pred the test dataset
 st.title("📊 Model Performance")
 
 # Accuracy scoreee
-#st.subheader("1. Model Accuracy")
-#accuracy = accuracy_score(y_test,y_pred)
-#st.success(f"Accuracy: {accuracy*100:.2f}")
+st.subheader("1. Model Accuracy")
+accuracy = accuracy_score(y_test,y_pred)
+st.success(f"Accuracy: {accuracy*100:.2f}")
 
-st.write("y_test dtype:", y_test.dtype)
-st.write("y_test unique:", y_test.unique())
-
-st.write("y_test values and types:")
-for val in y_test.unique():
-    st.write(repr(val), type(val))
-
-st.write("y_pred dtype:", y_pred.dtype)
-st.write("y_pred unique:", set(y_pred))
-
-st.stop()
 
 #Confusion matrix.
 st.subheader("2. Confusion Matrix")
